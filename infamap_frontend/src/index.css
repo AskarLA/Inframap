@@ -1,0 +1,1974 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-gray-200;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+
+  /* Text clamp utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+  line-height: 1.4;
+}
+
+/* Custom marker styles */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-marker div {
+  transition: all 0.3s ease;
+}
+
+.custom-marker:hover div {
+  transform: scale(1.1);
+}
+
+/* Leaflet popup improvements */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Coverage zone animations */
+@keyframes coverageZonePulse {
+  0% {
+    opacity: 0.1;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(0.95);
+  }
+}
+
+.coverage-zone {
+  animation: coverageZonePulse 3s ease-in-out infinite;
+}
+
+/* Enhanced recommendation marker animations */
+@keyframes recommendationPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+.marker-recommended {
+  animation: recommendationPulse 3s ease-in-out infinite;
+}
+
+/* Map controls styling */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: white !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  color: #374151 !important;
+  font-weight: bold !important;
+  transition: all 0.2s ease !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #f3f4f6 !important;
+  transform: scale(1.05);
+}
+
+.leaflet-control-scale {
+  background-color: rgba(255,255,255,0.9) !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Slider styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Modern slider styles */
+.slider-modern {
+  background: linear-gradient(90deg, #e5e7eb 0%, #e5e7eb 100%);
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.slider-modern::-webkit-slider-thumb {
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  border: 3px solid white;
+  transition: all 0.3s ease;
+}
+
+.slider-modern::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+.slider-modern::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+}
+
+.slider-modern::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+/* Dark mode scrollbar */
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.6);
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.5s ease-out;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.6s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-blue {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.gradient-red {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Advanced button styles */
+.btn-gradient {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* Statistics cards */
+.stat-card {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Dark mode stat cards */
+.dark .stat-card {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  border: 1px solid #374151;
+}
+
+/* Loading animations */
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+}
+
+.loading-dots::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-left: 4px;
+  animation: loadingDots 1.4s infinite both;
+}
+
+@keyframes loadingDots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pulse animation for important elements */
+.pulse-primary {
+  animation: pulsePrimary 2s infinite;
+}
+
+@keyframes pulsePrimary {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Enhanced map styles */
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: 1.4;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.recommendation-popup .leaflet-popup-content-wrapper {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border: 2px solid white;
+}
+
+.recommendation-popup .leaflet-popup-tip {
+  background: #8b5cf6;
+}
+
+/* Enhanced marker animations */
+.facility-marker {
+  transition: all 0.3s ease;
+}
+
+.facility-marker:hover {
+  z-index: 1000;
+}
+
+.recommendation-marker {
+  z-index: 1001;
+}
+
+/* Marker size responsive */
+@media (max-width: 768px) {
+  .facility-marker .w-12 {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .recommendation-marker .w-14 {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* Map loading overlay */
+.map-loading {
+  background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+              linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+              linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  animation: mapLoading 1s linear infinite;
+}
+
+@keyframes mapLoading {
+  0% {
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+  100% {
+    background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px;
+  }
+}
+
+/* Enhanced legend styles */
+.legend-item {
+  transition: all 0.2s ease;
+}
+
+.legend-item:hover {
+  transform: translateX(2px);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Custom popup buttons */
+.popup-button {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.popup-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.popup-button.secondary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.popup-button.secondary:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Improved heatmap blend modes */
+.leaflet-heatmap-layer {
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+}
+
+/* Custom zoom controls */
+.leaflet-control-zoom a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced coverage zones */
+.coverage-zone-outer {
+  animation: coverageZonePulse 4s ease-in-out infinite;
+}
+
+.coverage-zone-inner {
+  animation: coverageZonePulse 4s ease-in-out infinite reverse;
+}
+
+/* Individual coverage zone animation */
+@keyframes individualCoveragePulse {
+  0%, 100% {
+    opacity: 0.7;
+    stroke-width: 2;
+  }
+  50% {
+    opacity: 0.9;
+    stroke-width: 3;
+  }
+}
+
+.individual-coverage-zone {
+  animation: individualCoveragePulse 4s ease-in-out infinite;
+}
+
+@keyframes coverageFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Стили для подписи индивидуального радиуса */
+.individual-coverage-label {
+  z-index: 1000 !important;
+}
+
+/* Карточка информации о радиусе покрытия */
+.coverage-info-card {
+  background: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  animation: coverageCardFadeIn 0.5s ease-out;
+}
+
+@keyframes coverageCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.coverage-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.coverage-icon {
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.coverage-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.coverage-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.coverage-distance,
+.coverage-time {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.coverage-distance {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.coverage-time {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+/* Темная тема для карточки покрытия */
+.dark .coverage-info-card {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95));
+  border: 2px solid rgba(147, 197, 253, 0.3);
+}
+
+.dark .coverage-title {
+  color: #f1f5f9;
+}
+
+/* Красивые эффекты для легенды */
+.legend-mini-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.legend-mini-item:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Плавающая анимация для активных элементов */
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Улучшенные кнопки с неоморфизмом */
+.neo-button {
+  background: linear-gradient(145deg, #ffffff, #e2e8f0);
+  box-shadow: 5px 5px 10px #d1d5db, -5px -5px 10px #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.neo-button:hover {
+  box-shadow: 2px 2px 5px #d1d5db, -2px -2px 5px #ffffff;
+  transform: translateY(1px);
+}
+
+.neo-button:active {
+  box-shadow: inset 2px 2px 5px #d1d5db, inset -2px -2px 5px #ffffff;
+}
+
+/* Темная версия неоморфизма */
+.dark .neo-button {
+  background: linear-gradient(145deg, #374151, #1f2937);
+  box-shadow: 5px 5px 10px #111827, -5px -5px 10px #4b5563;
+}
+
+.dark .neo-button:hover {
+  box-shadow: 2px 2px 5px #111827, -2px -2px 5px #4b5563;
+}
+
+.dark .neo-button:active {
+  box-shadow: inset 2px 2px 5px #111827, inset -2px -2px 5px #4b5563;
+}
+
+/* Анимация для кнопок в popup */
+.popup-button-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.popup-button-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Responsive legend */
+@media (max-width: 768px) {
+  .absolute.bottom-4.left-4 {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    min-width: auto;
+    max-width: none;
+  }
+}
+
+/* Map scale control */
+.leaflet-control-scale {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient text effects */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading animation for map tiles */
+.leaflet-tile-container {
+  transition: opacity 0.3s ease;
+}
+
+.leaflet-tile {
+  filter: contrast(1.05) saturate(1.1);
+}
+
+/* Map container improvements */
+.leaflet-container {
+  background: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Attribution control styling */
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Enhanced button hover effects */
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(107, 114, 128, 0.2);
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+}
+
+/* Status indicator animations */
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.status-online {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* Improved focus states */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading spinner enhancement */
+@keyframes spinEnhanced {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.spinner-enhanced {
+  animation: spinEnhanced 1s linear infinite;
+}
+
+/* Map overlay improvements */
+.map-overlay {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improved scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.6);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.6);
+}
+
+/* Pulse animation for markers */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Performance optimizations */
+.leaflet-container,
+.leaflet-tile,
+.leaflet-zoom-anim {
+  will-change: transform;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .custom-popup .leaflet-popup-content-wrapper {
+    border: 2px solid #000;
+  }
+  
+  .btn-primary {
+    border: 2px solid #fff;
+  }
+  
+  .btn-secondary {
+    border: 2px solid #000;
+  }
+}
+
+/* Анимации для статистики */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Улучшенные переходы */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Стили для провальных зон школ */
+.gap-zone-marker {
+  z-index: 1002; /* Выше обычных рекомендаций */
+}
+
+@keyframes gapZonePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(220, 38, 38, 0.6);
+  }
+}
+
+@keyframes gapZoneAlert {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-2deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(2deg);
+  }
+}
+
+.gap-zone-marker .custom-marker div {
+  animation: gapZonePulse 2s ease-in-out infinite, gapZoneAlert 3s ease-in-out infinite;
+}
+
+/* Специальная анимация для иконки провала */
+@keyframes warningFlash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.6;
+  }
+}
+
+.gap-zone-marker .warning-icon {
+  animation: warningFlash 1.5s ease-in-out infinite;
+}
+
+/* Улучшенные эффекты для провальных зон */
+.gap-zone-popup .leaflet-popup-content-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+  border: 2px solid #fecaca;
+  overflow: hidden;
+}
+
+.gap-zone-popup .leaflet-popup-tip {
+  background: #dc2626;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+}
+
+/* Анимация появления провальных зон */
+@keyframes gapZoneAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.gap-zone-marker {
+  animation: gapZoneAppear 0.8s ease-out;
+}
+
+/* Эффект тревоги для провальных зон */
+.gap-zone-critical {
+  animation: gapZonePulse 1s ease-in-out infinite, gapZoneAlert 2s ease-in-out infinite;
+}
+
+/* Цветовая схема для разных уровней приоритета провальных зон */
+.gap-zone-high {
+  background: linear-gradient(135deg, #dc2626, #991b1b) !important;
+  border-color: #fecaca !important;
+}
+
+.gap-zone-medium {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  border-color: #fef3c7 !important;
+}
+
+.gap-zone-low {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6) !important;
+  border-color: #ddd6fe !important;
+  animation: gapZonePulse 3s ease-in-out infinite;
+}
+
+/* Анимации для маркеров районов */
+@keyframes districtPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.district-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.district-marker div {
+  animation: districtPulse 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.district-marker:hover div {
+  transform: scale(1.1) !important;
+  animation-play-state: paused;
+}
+
+/* Улучшенные стили для модального окна деталей */
+.facility-details-modal {
+  backdrop-filter: blur(5px);
+}
+
+.facility-details-content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* Специальные стили для заглушек */
+.placeholder-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Стили для предупреждений о данных в разработке */
+.dev-warning {
+  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  animation: warningGlow 3s ease-in-out infinite;
+}
+
+@keyframes warningGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  }
+}
+
+/* Улучшенные стили для popup кнопок */
+.leaflet-popup-content button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.2s ease !important;
+}
+
+.leaflet-popup-content button:active {
+  transform: translateY(0px) !important;
+}
+
+.leaflet-popup-content button {
+  transition: all 0.2s ease !important;
+}
+
+/* Заглушки для демонстрационных данных */
+.mock-data-indicator {
+  position: relative;
+}
+
+.mock-data-indicator::before {
+  content: "🔄";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 12px;
+  opacity: 0.7;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes recommendationGlow {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+  }
+}
+
+.marker-recommended {
+  animation: recommendationPulse 3s ease-in-out infinite;
+}
+
+.priority-badge {
+  animation: priorityBadgePulse 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ INFRAMAP
+   ========================================================================== */
+
+/* Базовые брейкпоинты */
+/* xs: 0px - 479px (мобильные телефоны)
+   sm: 480px - 767px (крупные мобильные)
+   md: 768px - 1023px (планшеты)
+   lg: 1024px+ (десктоп) */
+
+/* ==========================================================================
+   EXTRA SMALL DEVICES (до 479px) - мобильные телефоны
+   ========================================================================== */
+@media (max-width: 479px) {
+  /* Основной контейнер */
+  .app-container {
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Карта на мобильных */
+  .leaflet-container {
+    height: 100vh !important;
+    touch-action: pan-x pan-y;
+  }
+
+  /* Панели управления - стек вертикально */
+  .control-panel {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    z-index: 1000 !important;
+    max-height: 40vh !important;
+    overflow-y: auto !important;
+    padding: 12px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    font-size: 14px !important;
+    transform: translateY(0) !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+  }
+
+  /* Скрытие панели управления */
+  .control-panel.hidden {
+    transform: translateY(-100%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Панель результатов внизу */
+  .results-panel {
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    z-index: 1000 !important;
+    max-height: 35vh !important;
+    overflow-y: auto !important;
+    padding: 12px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+    font-size: 14px !important;
+  }
+
+  /* Кнопки управления панелями */
+  .panel-toggle-btn {
+    position: absolute !important;
+    z-index: 1001 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .panel-toggle-btn:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    transform: scale(1.05) !important;
+  }
+
+  .toggle-control-panel {
+    top: 10px !important;
+    right: 60px !important;
+  }
+
+  .toggle-results-panel {
+    bottom: 10px !important;
+    right: 60px !important;
+  }
+
+  /* Форма поиска */
+  .search-form {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+
+  .search-input {
+    width: 100% !important;
+    font-size: 16px !important; /* Предотвращение зума на iOS */
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Селекты и инпуты */
+  select, input {
+    width: 100% !important;
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Кнопки */
+  .btn-primary, .btn-secondary {
+    width: 100% !important;
+    padding: 14px 16px !important;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    touch-action: manipulation !important;
+  }
+
+  /* Компактные кнопки для экономии места */
+  .btn-compact {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    margin: 2px !important;
+    display: inline-block !important;
+    width: auto !important;
+  }
+
+  /* Сетка кнопок */
+  .button-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+  }
+
+  /* Маркеры на карте */
+  .facility-marker .w-12 {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .facility-marker .w-8 {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .recommendation-marker .w-14 {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* Попапы */
+  .leaflet-popup-content-wrapper {
+    max-width: 250px !important;
+    font-size: 14px !important;
+  }
+
+  .leaflet-popup-content {
+    margin: 8px 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  .popup-button {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    margin: 4px 2px !important;
+  }
+
+  /* Модальные окна */
+  .modal-container {
+    margin: 10px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-content {
+    padding: 16px !important;
+    font-size: 14px !important;
+  }
+
+  .modal-header {
+    padding: 12px 16px !important;
+    font-size: 16px !important;
+  }
+
+  /* Легенда карты */
+  .legend-container {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 70px !important;
+    right: 10px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    padding: 8px !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    max-width: 150px !important;
+  }
+
+  /* Контролы карты Leaflet */
+  .leaflet-control-zoom {
+    margin-right: 15px !important;
+    margin-top: 60px !important;
+  }
+
+  .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 34px !important;
+    font-size: 18px !important;
+  }
+
+  /* Статистика */
+  .stats-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .stat-card {
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+
+  /* Скрытие второстепенных элементов */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Аккордеон для экономии места */
+  .accordion-section {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .accordion-header {
+    padding: 12px 0 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-weight: 500 !important;
+  }
+
+  .accordion-content {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease !important;
+  }
+
+  .accordion-content.open {
+    max-height: 300px !important;
+    padding-bottom: 12px !important;
+  }
+
+  /* Тач-френдли элементы */
+  .touch-target {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* ==========================================================================
+   SMALL DEVICES (480px - 767px) - большие мобильные устройства
+   ========================================================================== */
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Панели управления */
+  .control-panel {
+    position: absolute !important;
+    top: 15px !important;
+    left: 15px !important;
+    width: 300px !important;
+    max-height: 45vh !important;
+    z-index: 1000 !important;
+    padding: 16px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .results-panel {
+    position: absolute !important;
+    bottom: 15px !important;
+    left: 15px !important;
+    right: 15px !important;
+    max-height: 40vh !important;
+    z-index: 1000 !important;
+    padding: 16px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Кнопки */
+  .btn-primary, .btn-secondary {
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+  }
+
+  /* Сетка кнопок для лучшего использования пространства */
+  .button-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Маркеры */
+  .facility-marker .w-12 {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .recommendation-marker .w-14 {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Модальные окна */
+  .modal-container {
+    margin: 15px !important;
+    max-height: 85vh !important;
+  }
+}
+
+/* ==========================================================================
+   MEDIUM DEVICES (768px - 1023px) - планшеты
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Панели располагаются сбоку */
+  .control-panel {
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 320px !important;
+    max-height: 70vh !important;
+    z-index: 1000 !important;
+    padding: 20px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .results-panel {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 350px !important;
+    max-height: 70vh !important;
+    z-index: 1000 !important;
+    padding: 20px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Кнопки нормального размера */
+  .btn-primary, .btn-secondary {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Сетка кнопок */
+  .button-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Модальные окна занимают больше места */
+  .modal-container {
+    margin: 40px !important;
+    max-height: 80vh !important;
+  }
+}
+
+/* ==========================================================================
+   ЛАНДШАФТНАЯ ОРИЕНТАЦИЯ
+   ========================================================================== */
+@media (orientation: landscape) and (max-height: 600px) {
+  /* Уменьшаем панели для экономии вертикального пространства */
+  .control-panel {
+    max-height: 35vh !important;
+    padding: 12px !important;
+  }
+
+  .results-panel {
+    max-height: 30vh !important;
+    padding: 12px !important;
+  }
+
+  /* Компактные элементы управления */
+  .btn-primary, .btn-secondary {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+  }
+
+  /* Модальные окна на весь экран */
+  .modal-container {
+    margin: 10px !important;
+    max-height: 95vh !important;
+  }
+
+  /* Контролы карты ближе к краю */
+  .leaflet-control-zoom {
+    margin-top: 10px !important;
+  }
+}
+
+/* ==========================================================================
+   АДАПТАЦИЯ ДЛЯ СТАРЫХ МОБИЛЬНЫХ БРАУЗЕРОВ
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Отключаем некоторые эффекты для производительности */
+  .leaflet-container {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+
+  /* Упрощенные анимации */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+
+  /* Отключаем тени для экономии ресурсов */
+  .performance-mode .card,
+  .performance-mode .modal-container,
+  .performance-mode .control-panel,
+  .performance-mode .results-panel {
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* ==========================================================================
+   TOUCH-FRIENDLY ИНТЕРФЕЙС
+   ========================================================================== */
+@media (pointer: coarse) {
+  /* Увеличиваем размеры кликабельных элементов */
+  button, .btn, input[type="button"], input[type="submit"] {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Увеличиваем отступы между элементами */
+  .form-group {
+    margin-bottom: 16px !important;
+  }
+
+  /* Больше пространства для текста */
+  input, select, textarea {
+    padding: 14px 16px !important;
+    font-size: 16px !important;
+  }
+
+  /* Увеличенные маркеры карты */
+  .facility-marker {
+    transform: scale(1.2) !important;
+  }
+
+  .recommendation-marker {
+    transform: scale(1.3) !important;
+  }
+}
+
+/* ==========================================================================
+   АДАПТАЦИЯ ДЛЯ ТЁМНОЙ ТЕМЫ НА МОБИЛЬНЫХ
+   ========================================================================== */
+@media (max-width: 767px) {
+  .dark .control-panel,
+  .dark .results-panel {
+    background: rgba(31, 41, 55, 0.95) !important;
+    border: 1px solid rgba(75, 85, 99, 0.3) !important;
+  }
+
+  .dark .panel-toggle-btn {
+    background: rgba(31, 41, 55, 0.9) !important;
+    color: white !important;
+  }
+
+  .dark .legend-container {
+    background: rgba(31, 41, 55, 0.9) !important;
+    color: white !important;
+  }
+}
+
+/* ==========================================================================
+   СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ iOS SAFARI
+   ========================================================================== */
+@supports (-webkit-touch-callout: none) {
+  /* Фикс для iOS Safari viewport */
+  .app-container {
+    min-height: -webkit-fill-available !important;
+  }
+
+  /* Предотвращение зума при фокусе на input */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Фикс для iOS scrolling */
+  .control-panel,
+  .results-panel,
+  .modal-container {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* ==========================================================================
+   АДАПТИВНЫЕ УТИЛИТАРНЫЕ КЛАССЫ
+   ========================================================================== */
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: block !important;
+}
+
+@media (max-width: 767px) {
+  .mobile-only {
+    display: block !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+
+  .mobile-full-width {
+    width: 100% !important;
+  }
+
+  .mobile-text-center {
+    text-align: center !important;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-margin-bottom {
+    margin-bottom: 16px !important;
+  }
+}
+
+/* ==========================================================================
+   АНИМАЦИИ ДЛЯ ПАНЕЛЕЙ
+   ========================================================================== */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 0.3s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+/* ==========================================================================
+   АДАПТАЦИЯ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ (< 360px)
+   ========================================================================== */
+@media (max-width: 359px) {
+  .control-panel,
+  .results-panel {
+    left: 5px !important;
+    right: 5px !important;
+    padding: 8px !important;
+  }
+
+  .panel-toggle-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .search-input {
+    padding: 10px 12px !important;
+  }
+
+  .leaflet-popup-content-wrapper {
+    max-width: 200px !important;
+  }
+} 
